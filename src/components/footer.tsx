@@ -1,24 +1,25 @@
 "use client";
 import styled from "styled-components";
 import Link from "next/link";
+import { RealvjyC, RealvjyC2 } from "./icons";
 
 export default function Footer() {
   return (
     <Section>
       <div className="container">
         <Wrapper>
-          tips, design & code by{" "}
+          tips, design & code by
           <span>
             <Link target={"_blank"} href={"https://vjy.me"}>
-              realvjy
+              <img src="realvjy.svg" />
             </Link>
-          </span>{" "}
-          at{" "}
+          </span>
+          at
           <span>
-            <Link target={"_blank"} href={"https://overlayz.co"}>
-              @overlayz
+            <Link target={"_blank"} href={"https://overlayz.studio"}>
+              <img src="overlayz.svg" />
             </Link>
-          </span>{" "}
+          </span>
           <span className={"img"}>
             <a href="https://x.com/realvjy">
               <img src={"/icons/twitter.svg"} />
@@ -37,12 +38,12 @@ const Section = styled.footer`
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 20px;
   padding: 40px 0;
   font-size: 14px;
   font-weight: 400;
   color: #626262;
-
+  align-items: center;
   span {
     padding-inline: 5px;
     font-weight: 500;

@@ -2,6 +2,7 @@
 import { tutsDataType } from "@/lib/tuts-data";
 import styled from "styled-components";
 import Link from "next/link";
+import { Badge } from "@/styles/ReusableStyles";
 
 export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
   const views = Intl.NumberFormat("en-US", {
@@ -13,14 +14,27 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
     <Wrapper>
       <Content>
         <TutsTitle>{tuts.title}</TutsTitle>
+
         <MetaInfo>
-          <div className={"downloads "}>{tuts.date} </div>
-          <div className={"downloads "}>{tuts.source} </div>
+          <div className="tag">
+            {tuts.tags.map((m) => {
+              return <Tag key={m}>{m}</Tag>;
+            })}
+          </div>
+          <div className="source">
+            <div className={"meta"}>{tuts.date} </div>
+            <span>•</span>
+            <div className={"meta"}>{tuts.source} </div>
+          </div>
         </MetaInfo>
         <TutsDescription> {tuts.description} </TutsDescription>
+
         <Thumbnail>
-          <img src={`/tuts-img/${tuts.img}`} />
+          <a href={tuts.url} target="_blank">
+            <img src={`/tuts-img/${tuts.img}`} />
+          </a>
         </Thumbnail>
+
         <TutsButton href={tuts.url} target={"_blank"}>
           View on X/Twitter
         </TutsButton>
@@ -36,26 +50,58 @@ export const Wrapper = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--primary-border-color);
 `;
 export const Thumbnail = styled.div`
   height: 60%;
   width: 100%;
   img {
+    width: 100%;
     border-radius: 12px;
   }
+`;
+
+export const Tag = styled.div`
+  border: 1px solid rgba(120, 120, 120, 0.2);
+  color: rgba(80, 80, 80, 0.8);
+  padding: 1px 6px;
+  font-size: 12px;
+  line-height: 14px;
+  border-radius: 12px;
 `;
 export const MetaInfo = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   width: 100%;
+  margin-top: 6px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  gap: 8px;
+  text-transform: capitalize;
+  .source {
+    flex-direction: row;
+    display: flex;
+    gap: 8px;
+  }
+  .tag {
+    flex-direction: row;
+    display: flex;
+    gap: 4px;
+  }
+  span {
+    opacity: 0.2;
+  }
+  .meta {
+    color: var(--primary-fg-text);
+    opacity: 0.7;
+  }
 `;
 export const Content = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  padding: 12px 20px 20px 20px;
+  padding: 8px 12px 12px 12px;
 `;
 
 export const ContentHeader = styled.div`
@@ -85,6 +131,7 @@ export const ContentHeader = styled.div`
   .downloads {
     font-size: 1em;
     color: var(--primary-fg-text);
+    opacity: 0.7;
     font-weight: 600;
     @media screen and (max-width: 500px) {
       font-size: 0.9em;
@@ -106,16 +153,16 @@ export const TutsLogo = styled.div`
 `;
 export const TutsTitle = styled.h3`
   font-weight: 700;
-  font-size: 20px;
-  text-transform: capitalize;
-  margin-top: 8px;
+  font-size: 17px;
+  margin-bottom: 2px;
   @media screen and (max-width: 500px) {
     font-size: 18px;
   }
 `;
 export const TutsDescription = styled.p`
-  font-size: 1.12em;
+  font-size: 16px;
   font-weight: 400;
+  line-height: 120%;
   color: var(--primary-fg-text);
   margin-top: 8px;
   margin-bottom: 12px;
@@ -124,11 +171,14 @@ export const TutsDescription = styled.p`
   }
 `;
 export const TutsButton = styled(Link)`
-  font-size: 1em;
+  font-size: 14px;
   text-align: center;
   border-radius: 20px;
-  padding: 8px 20px;
+  padding: 6px 20px;
   color: var(--color-text-blue);
   border: 1px solid var(--border-color);
   margin-top: 18px;
+  &:hover {
+    background: var(--white);
+  }
 `;

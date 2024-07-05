@@ -6,13 +6,15 @@
   --primary-bg-color: #FFFFFF;
   --primary-fg-color: #000000;
   --primary-fg-text: rgba(0, 0, 0, 48%);
-  --primary-border-color: rgba(0, 0, 0, 9%);
+  --primary-border-color: rgba(0, 0, 0, 5%);
   --color-text-blue: #066AFF;
   --color-bg-cyan: #CBEFFF;
   --color-text-orange: #FF4206;
   --color-bg-orange: rgba(255, 228, 203, 1);
-  --max-container-width: 480px;
+  --max-container-width: 400px;
   --border-color: rgba(0,0,0,0.1);
+  --hover-bg: linear-gradient(90deg, rgba(255, 233, 244, 0.2) 0%, rgba(234, 243, 255, 0.4) 100%);
+  --white: #fff;
 }
 
 a {
@@ -23,7 +25,7 @@ a {
 // main
 
 body {
-  font-family: var(--font-primary);
+  font-family: var(--font-interDisplay);
   background: var(--primary-bg-color);
   color: var(--primary-fg-color);
 }
@@ -44,4 +46,21 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+}
+
+.left{
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+  opacity: .4;
+}
+
+.right{
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  opacity: .4;
+}
+
+.title-dot{
+  margin: 0 24px;
 }

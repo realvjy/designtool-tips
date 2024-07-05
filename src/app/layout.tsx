@@ -3,15 +3,12 @@ import "../styles/globals.scss";
 import StyledComponentsRegistry from "@/styles/styled-registry";
 import { Metadata } from "next";
 import localFont from "next/font/local";
-const inter = localFont({
-  src: "../styles/fonts/inter-variable.woff2",
-  display: "swap",
-  variable: "--font-primary",
-});
+import { interDisplay } from "@/styles/fonts";
 
 export const metadata: Metadata = {
-  title: "Figma Plugin",
-  description: "Figma Plugin created by realvjy",
+  title: "realvjy's design tool tips and tricks",
+  description:
+    "realvjy's design tool tips and tricks mostly about figma but can use on other design tool",
 };
 
 export default function RootLayout({
@@ -20,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.variable}>
+    <html lang="en" className={`${interDisplay.variable}`}>
+      <body>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>

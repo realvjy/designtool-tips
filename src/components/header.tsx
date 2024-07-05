@@ -3,7 +3,9 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { Coolshape, shapeTypes } from "coolshapes-react";
-import { RealvjyC, RealvjyC2 } from "./icons";
+import { BorderLine, RealvjyC, RealvjyC2 } from "./icons";
+import { Seprator } from "@/styles/ReusableStyles";
+import { tutsData } from "@/lib/tuts-data";
 
 export default function Header({
   shape,
@@ -18,19 +20,38 @@ export default function Header({
             <RealvjyC2 className="img" />
             <h1>design tool tips</h1>
           </LogoWrapper>
-          {/* <HeaderText>Figma plugin I made over the years</HeaderText> */}
+          <p className="subtitle">
+            Over the year shared lots of tips and tricks related to design
+            tools, mostly about Figma, but they can be applied to any other
+            tools.
+          </p>
+          <Seprator>
+            <BorderLine className="left" />
+            {/* <span>
+              <img src={"/three-dots.svg"} className="title-dot" />
+            </span> */}
+            <h3>{tutsData.filter((f) => !f.hidden).length} tips</h3>
+            <BorderLine className="right" />
+          </Seprator>
         </Wrapper>
       </div>
     </Section>
   );
 }
 
-const Section = styled.header``;
+const Section = styled.header`
+  .subtitle {
+    text-align: center;
+    margin: 8px 0;
+    max-width: 90%;
+    opacity: 0.6;
+  }
+`;
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 15px;
+  gap: 4px;
   align-items: center;
 `;
 const LogoWrapper = styled(Link)`
@@ -42,6 +63,7 @@ const LogoWrapper = styled(Link)`
     font-weight: 700;
     letter-spacing: -1px;
   }
+
   .img {
     width: auto;
     max-height: 40px;
