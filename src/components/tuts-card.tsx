@@ -14,6 +14,12 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
     <Wrapper>
       <Content>
         <TutsTitle>{tuts.title}</TutsTitle>
+        <TutsDescription> {tuts.description} </TutsDescription>
+        <Thumbnail>
+          <a href={tuts.url} target="_blank">
+            <img src={`/tuts-img/${tuts.img}`} />
+          </a>
+        </Thumbnail>
 
         <MetaInfo>
           <div className="tag">
@@ -27,16 +33,9 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
             <div className={"meta"}>{tuts.source} </div>
           </div>
         </MetaInfo>
-        <TutsDescription> {tuts.description} </TutsDescription>
-
-        <Thumbnail>
-          <a href={tuts.url} target="_blank">
-            <img src={`/tuts-img/${tuts.img}`} />
-          </a>
-        </Thumbnail>
-
         <TutsButton href={tuts.url} target={"_blank"}>
-          View on X/Twitter
+          View on{" "}
+          {tuts.source === ("twitter" || "x") ? "X/Twitter" : tuts.source}
         </TutsButton>
       </Content>
     </Wrapper>
@@ -72,10 +71,10 @@ export const MetaInfo = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-top: 6px;
+  margin-top: 8px;
   align-items: center;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   gap: 8px;
   text-transform: capitalize;
@@ -121,7 +120,6 @@ export const ContentHeader = styled.div`
       background: var(--color-bg-cyan);
       color: var(--color-text-blue);
     }
-
     &.freemium,
     &.pad {
       background: var(--color-bg-orange);
@@ -146,7 +144,6 @@ export const TutsLogo = styled.div`
   border-radius: 12px;
   display: flex;
   overflow: hidden;
-
   img {
     height: 48px;
   }
@@ -154,18 +151,17 @@ export const TutsLogo = styled.div`
 export const TutsTitle = styled.h3`
   font-weight: 700;
   font-size: 17px;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
   @media screen and (max-width: 500px) {
     font-size: 18px;
   }
 `;
 export const TutsDescription = styled.p`
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 120%;
   color: var(--primary-fg-text);
-  margin-top: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   @media screen and (max-width: 500px) {
     font-size: 1em;
   }
@@ -177,7 +173,7 @@ export const TutsButton = styled(Link)`
   padding: 6px 20px;
   color: var(--color-text-blue);
   border: 1px solid var(--border-color);
-  margin-top: 18px;
+  margin-top: 8px;
   &:hover {
     background: var(--white);
   }

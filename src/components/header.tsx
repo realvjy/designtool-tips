@@ -2,16 +2,11 @@
 "use client";
 import Link from "next/link";
 import styled from "styled-components";
-import { Coolshape, shapeTypes } from "coolshapes-react";
 import { BorderLine, RealvjyC, RealvjyC2 } from "./icons";
 import { Seprator } from "@/styles/ReusableStyles";
 import { tutsData } from "@/lib/tuts-data";
 
-export default function Header({
-  shape,
-}: {
-  shape: { shapeType: shapeTypes; index: number };
-}) {
+export default function Header() {
   return (
     <Section>
       <div className="container">

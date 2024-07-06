@@ -9,7 +9,7 @@ import { HoverBox } from "@/styles/ReusableStyles";
 
 export default function Home() {
   const loader = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState<number>(3);
+  const [visible, setVisible] = useState<number>(33);
   const [fullLoad, setFullLoad] = useState<boolean>(false);
   let tutCards = tutsData.filter((f) => !f.hidden);
   tutCards.sort((a, b) => b.id - a.id);
@@ -65,11 +65,11 @@ export default function Home() {
         {!fullLoad ? (
           <LoaderBtn ref={loader} onClick={showMoreItems}>
             {/* {fullLoad && <h2>More tutorial...</h2>} */}
-            More tutorial...
+            More tips...
           </LoaderBtn>
         ) : (
           <MoreInfo>
-            <h2>More tuts coming soon. Check</h2>
+            <h2>More tips coming soon. Check</h2>
             <a href="https://x.com/realvjy">twitter</a>
           </MoreInfo>
         )}
@@ -85,7 +85,7 @@ const MainSection = styled.section`
 `;
 
 const Wrapper = styled.div`
-  margin-top: 70px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -111,7 +111,7 @@ const MoreInfo = styled.div`
 
 const LoaderBtn = styled.div`
   font-size: 1em;
-  border-radius: 8px;
+  border-radius: 24px;
   padding: 8px 20px;
   cursor: default;
   border: 1px solid var(--primary-border-color);
@@ -121,8 +121,11 @@ const LoaderBtn = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2px;
-  color: rgba(120, 120, 120, 0.5);
-  background: rgba(120, 120, 120, 0.04);
+  color: rgba(52, 52, 52, 0.7);
+  background: rgba(120, 120, 120, 0.01);
+  &:hover {
+    background: rgba(120, 120, 120, 0.05);
+  }
 `;
 
 const HoverEffect = styled(HoverBox)`
@@ -133,7 +136,4 @@ const HoverEffect = styled(HoverBox)`
   border-radius: 24px;
   transform: translateY(-20px);
   padding-bottom: 4px;
-  @media screen and (max-width: 768px) {
-    transform: translateY(2px);
-  }
 `;

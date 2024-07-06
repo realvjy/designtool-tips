@@ -17,7 +17,7 @@ export default function Footer() {
           at
           <span>
             <Link target={"_blank"} href={"https://overlayz.studio"}>
-              <img src="overlayz.svg" />
+              @overlayz
             </Link>
           </span>
           <span className={"img"}>
