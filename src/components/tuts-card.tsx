@@ -69,6 +69,7 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
 
     cardWrapRef.current.style.transform = `
       scale3d(1.0, 1.0, 1.0)
+      perspective(800px)
       rotate3d(
         ${center.y / 100},
         ${-center.x / 100},
@@ -79,9 +80,9 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
     borderWrapRef.current.style.backgroundImage = `
       radial-gradient(
         circle at
-        ${center.x * 2 + cardBounds.width / 2 - 20}px
-        ${center.y * 2 + cardBounds.height / 2 - 20}px,
-        #ffffff2c,
+        ${center.x * 2 + cardBounds.width / 2 - 30}px
+        ${center.y * 2 + cardBounds.height / 2 - 30}px,
+        #ffffff3e,
         #0000000f
       )
     `;
@@ -129,10 +130,12 @@ export const Wrapper = styled.div`
   border-radius: 24px;
   overflow: hidden;
   display: flex;
+  position: relative;
   flex-direction: column;
   background: rgba(128, 128, 128, 0.3);
   background-blend-mode: luminosity;
   backdrop-filter: blur(45px);
+  -webkit-backdrop-filter: blur(45px);
   border-radius: 24px;
   &::before {
     content: "";

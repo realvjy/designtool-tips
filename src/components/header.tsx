@@ -15,11 +15,7 @@ export default function Header() {
             <RealvjyC2 className="img" />
             <h1>design tool tips</h1>
           </LogoWrapper>
-          <p className="subtitle">
-            Over the year shared lots of tips and tricks related to design
-            tools, mostly about Figma, but they can be applied to any other
-            tools.
-          </p>
+
           <Seprator>
             <BorderLine className="left" />
             {/* <span>
