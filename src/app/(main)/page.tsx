@@ -9,7 +9,7 @@ import { HoverBox } from "@/styles/ReusableStyles";
 
 export default function Home() {
   const loader = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState<number>(33);
+  const [visible, setVisible] = useState<number>(3);
   const [fullLoad, setFullLoad] = useState<boolean>(false);
   let tutCards = tutsData.filter((f) => !f.hidden);
   tutCards.sort((a, b) => b.id - a.id);
@@ -56,9 +56,9 @@ export default function Home() {
         <Wrapper>
           {tutCards.slice(0, visible).map((data, key) => {
             return (
-              <HoverEffect>
+              <CardWrap>
                 <TutsCard tuts={data} key={key} />
-              </HoverEffect>
+              </CardWrap>
             );
           })}
         </Wrapper>
@@ -85,10 +85,11 @@ const MainSection = styled.section`
 `;
 
 const Wrapper = styled.div`
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  margin-bottom: 20px;
 `;
 
 const MoreInfo = styled.div`
@@ -121,19 +122,16 @@ const LoaderBtn = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2px;
-  color: rgba(52, 52, 52, 0.7);
-  background: rgba(120, 120, 120, 0.01);
+  color: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(
+      0deg,
+      rgba(94, 94, 94, 0.07),
+      rgba(94, 94, 94, 0.08)
+    ),
+    rgba(255, 255, 255, 0.04);
   &:hover {
-    background: rgba(120, 120, 120, 0.05);
+    opacity: 0.8;
   }
 `;
 
-const HoverEffect = styled(HoverBox)`
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-  border: 1px solid var(--primary-border-color);
-  border-radius: 24px;
-  transform: translateY(-20px);
-  padding-bottom: 4px;
-`;
+const CardWrap = styled.div``;

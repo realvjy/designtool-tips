@@ -243,9 +243,8 @@ export const tutsData: tutsDataType[] = [
     url: "https://x.com/realvjy/status/1808854859371733261",
     source: "twitter",
   },
-
   {
-    id: 45,
+    id: 65,
     title: "Moving Sphere",
     img: "moving-sphere.gif",
     date: "25 April, 2024",
@@ -259,7 +258,7 @@ export const tutsData: tutsDataType[] = [
     source: "twitter",
   },
   {
-    id: 62,
+    id: 60,
     title: "Modular Illustration",
     img: "modular-ticket-illustration.gif",
     date: "14 May, 2024",
@@ -273,7 +272,7 @@ export const tutsData: tutsDataType[] = [
     source: "twitter",
   },
   {
-    id: 113,
+    id: 61,
     title: "Glow Effect",
     img: "glow-cheatsheet.gif",
     date: "24 June, 2024",

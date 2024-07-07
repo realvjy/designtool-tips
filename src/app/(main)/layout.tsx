@@ -36,10 +36,12 @@ const Main = styled.main`
     /* height: 420px; */
     z-index: -100;
     /* background: linear-gradient(180deg,transparent,hsla(0,0%,100%,1) 47.39%,#fff),linear-gradient(90deg,#f9ddf1 .07%,#e5e1ff 16.73%,#daedff 34.48%,#e2f4e3 49.98%,#ebf5d8 66.12%,#faf2da 81.95%,#fbe5d8 99.9%); */
-    /* background-image: url("/header-gradient.svg"), url("/footer-gradient.svg"); */
+    background-image: url("/header-gradient.svg");
     background-repeat: no-repeat;
-    background-position: top, bottom;
-    background-size: 1400px auto;
+    background-position: top;
+    background-size: 1640px auto;
+    z-index: -1;
+    pointer-events: none;
   }
 
   #texture {
