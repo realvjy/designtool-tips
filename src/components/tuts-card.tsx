@@ -19,12 +19,6 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
   }).format(tuts.view);
   const cardWrapRef = useRef<HTMLDivElement>(null);
   const borderWrapRef = useRef<HTMLDivElement>(null);
-  // const cardBounds: CardBounds = {
-  //   x: 0, // Adjust as per your actual bounds
-  //   y: 0, // Adjust as per your actual bounds
-  //   width: 100, // Adjust as per your actual bounds
-  //   height: 100, // Adjust as per your actual bounds
-  // };
 
   let cardBounds: DOMRect | null = null;
 
@@ -33,8 +27,6 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
 
     if (cardWrapRef.current) {
       cardBounds = cardWrapRef.current.getBoundingClientRect();
-      // console.log(cardBounds);
-
       document.addEventListener("mousemove", rotateToMouse);
     }
   }
@@ -65,14 +57,12 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
     };
     const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
 
-    console.log(mouseX, mouseY, topY, center);
-
     cardWrapRef.current.style.transform = `
       scale3d(1.0, 1.0, 1.0)
       perspective(800px)
       rotate3d(
-        ${center.y / 100},
-        ${-center.x / 100},
+        ${-center.y / 100},
+        ${center.x / 100},
         0,
         ${Math.log(distance) * 0.8}deg
     `;
