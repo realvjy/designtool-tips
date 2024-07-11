@@ -11,7 +11,7 @@ export default function Header() {
     <Section>
       <div className="container">
         <Wrapper>
-          <LogoWrapper href={"/"}>
+          <LogoWrapper href={"https://vjy.me"}>
             <RealvjyC2 className="img" />
             <h1>design tool tips</h1>
           </LogoWrapper>
