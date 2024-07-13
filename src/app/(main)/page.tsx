@@ -18,9 +18,11 @@ export default function Home() {
   };
 
   const callbackFunction: IntersectionObserverCallback = (entries) => {
-    const [entry] = entries;
-    // setLoading(entry.isIntersecting);
-    setVisible((prevValue) => prevValue + 2);
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setVisible((prevVisible) => prevVisible + 1);
+      }
+    });
   };
 
   const options: IntersectionObserverInit = useMemo(() => {
@@ -31,24 +33,40 @@ export default function Home() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (fullLoad) {
-  //     const observe = new IntersectionObserver(callbackFunction, options);
-  //     const currentTarget = loader.current;
-  //     if (currentTarget) observe.observe(currentTarget);
-  //     return () => {
-  //       if (currentTarget) observe.observe(currentTarget);
-  //     };
-  //   } else {
-  //     setFullLoad(true);
-  //   }
-  // }, []);
+  useEffect(() => {
+    let observer: IntersectionObserver | undefined;
+
+    const startObserving = () => {
+      observer = new IntersectionObserver(callbackFunction, options);
+      const currentTarget = loader.current;
+      if (currentTarget) observer.observe(currentTarget);
+    };
+
+    // Start observing after 2 seconds
+    const timeoutId = setTimeout(() => {
+      if (!fullLoad) {
+        startObserving();
+      } else {
+        setFullLoad(true);
+      }
+    }, 600);
+
+    // Cleanup function
+    return () => {
+      clearTimeout(timeoutId);
+      if (observer) {
+        const currentTarget = loader.current;
+        if (currentTarget) observer.unobserve(currentTarget);
+      }
+    };
+  }, [fullLoad, callbackFunction, options]);
 
   useEffect(() => {
-    if (visible > tutCards.length) {
+    // Check if all cards are visible
+    if (visible >= tutCards.length) {
       setFullLoad(true);
     }
-  }, [visible]);
+  }, [visible, tutCards.length]);
 
   return (
     <MainSection>
@@ -65,7 +83,7 @@ export default function Home() {
         {!fullLoad ? (
           <LoaderBtn ref={loader} onClick={showMoreItems}>
             {/* {fullLoad && <h2>More tutorial...</h2>} */}
-            More tips...
+            More tips loading...
           </LoaderBtn>
         ) : (
           <MoreInfo>

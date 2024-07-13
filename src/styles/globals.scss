@@ -16,11 +16,17 @@
   --hover-bg: linear-gradient(90deg, rgba(255, 233, 244, 0.2) 0%, rgba(234, 243, 255, 0.4) 100%);
   --white: #fff;
   --light-white: rgba(255,255,255, 0.96);
+  --selection-bg: #f81ce5;
 }
 
 a {
   text-decoration: none;
   color: var(--primary-fg-color);
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--white);
 }
 
 // main

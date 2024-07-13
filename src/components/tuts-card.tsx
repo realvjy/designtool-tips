@@ -199,6 +199,7 @@ export const Content = styled.div`
   position: relative;
   flex-direction: column;
   padding: 18px 24px 20px 24px;
+  cursor: default;
 `;
 
 export const ContentHeader = styled.div`
