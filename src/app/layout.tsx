@@ -21,7 +21,7 @@ export const metadata = {
     url: seoData.openGraph.url,
     title: seoData.openGraph.title,
     locale: "en_EN",
-    siteName: "tips.vjy.me",
+    siteName: "designtool.tips",
     images: [
       {
         width: 1200,
