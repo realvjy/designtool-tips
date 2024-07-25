@@ -50,10 +50,10 @@ const Main = styled.main`
     left: 0px;
     z-index: -99;
     width: 100%;
-    height: calc(100vh + 200px);
+    /* height: calc(100vh + 200px);
     opacity: 0.25;
     pointer-events: none;
     transform: translateY(0px);
-    filter: contrast(120%) brightness(120%);
+    filter: contrast(120%) brightness(120%); */
   }
 `;
