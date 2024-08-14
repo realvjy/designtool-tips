@@ -78,6 +78,7 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
     `;
   }
 
+  const imgURL = "https://pub-ae326ee1d5544b3980b90627defb0e10.r2.dev";
   return (
     <Wrapper
       ref={cardWrapRef}
@@ -89,7 +90,7 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
         <TutsDescription> {tuts.description} </TutsDescription>
         <Thumbnail>
           <a href={tuts.url} target="_blank">
-            <img src={`/tuts-img/${tuts.img}`} />
+            <img src={`${imgURL}/tuts-image/${tuts.img}`} />
           </a>
         </Thumbnail>
 
