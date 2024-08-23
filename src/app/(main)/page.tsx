@@ -20,7 +20,7 @@ export default function Home() {
   const callbackFunction: IntersectionObserverCallback = (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setVisible((prevVisible) => prevVisible + 1);
+        setVisible((prevVisible) => prevVisible + 2);
       }
     });
   };
