@@ -6,13 +6,35 @@ import { tutsData } from "@/lib/tuts-data";
 import Link from "next/link";
 import { useState, useRef, useEffect, useMemo } from "react";
 import { HoverBox } from "@/styles/ReusableStyles";
+import Subscribe from "@/components/subscribe";
 
 export default function Home() {
   const loader = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState<number>(3);
+  const [visible, setVisible] = useState<number>(1);
   const [fullLoad, setFullLoad] = useState<boolean>(false);
   let tutCards = tutsData.filter((f) => !f.hidden);
+
   tutCards.sort((a, b) => b.id - a.id);
+
+  const special = {
+    id: 0,
+    title: "Halftone Effect",
+    img: "halftone-effect.png",
+    date: "18 Sep, 2022",
+    description: `Yes, this is @figma . Simple halftone effects can be easily added to your photos and illustrations to give them a retro look. Another experimenting with @rogie NT plugin.`,
+    author: "realvjy",
+    tags: ["figma", "video"],
+    view: 51000,
+    hidden: false,
+    category: "figma",
+    url: "https://x.com/realvjy/status/1571479068851466240",
+    source: "twitter",
+  };
+  // Insert the special blog post at the third position
+  const updatedTuts = [...tutCards.slice(0, 2), special, ...tutCards.slice(2)];
+
+  console.log(updatedTuts);
+
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 2);
   };
@@ -72,7 +94,7 @@ export default function Home() {
     <MainSection>
       <div className="container">
         <Wrapper>
-          {tutCards.slice(0, visible).map((data, key) => {
+          {updatedTuts.slice(0, visible).map((data, key) => {
             return (
               <CardWrap>
                 <TutsCard tuts={data} key={key} />

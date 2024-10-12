@@ -7,11 +7,12 @@ export type tutsDataType = {
   tags: string[];
   source: string;
   view: number;
-  featured?: false;
-  hidden?: false;
+  featured?: boolean;
+  hidden?: boolean;
   description?: string;
   url: string;
   date: string;
+  sub?: boolean;
 };
 
 // see public folder for thumbnail and logos
@@ -468,5 +469,33 @@ export const tutsData: tutsDataType[] = [
     category: "figma",
     url: "https://www.youtube.com/watch?v=w4i7Exsx9H8",
     source: "youtube",
+  },
+  {
+    id: 142,
+    title: "Create some animation again #5",
+    img: "animation-again.png",
+    date: "23 Aug, 2024",
+    description: `2 hours plus long stream to create some cool animation in figma.`,
+    author: "realvjy",
+    tags: ["figma", "video"],
+    view: 51000,
+    hidden: false,
+    category: "figma",
+    url: "https://www.youtube.com/watch?v=lxw7JvXNtPE",
+    source: "youtube",
+  },
+  {
+    id: 147,
+    title: "Buuble",
+    img: "bubble-steps.png",
+    date: "20 Sep, 2024",
+    description: `Simple steps to create cool multicolor bubble`,
+    author: "realvjy",
+    tags: ["figma", "any"],
+    view: 51000,
+    hidden: false,
+    category: "figma",
+    url: "https://x.com/realvjy/status/1844716401770037394",
+    source: "twitter",
   },
 ];

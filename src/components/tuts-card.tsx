@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import { Badge } from "@/styles/ReusableStyles";
 import { useRef } from "react";
+import Subscribe from "./subscribe";
 
 interface CardBounds {
   x: number;
@@ -23,8 +24,6 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
   let cardBounds: DOMRect | null = null;
 
   function onMouseEnter() {
-    console.log("entered");
-
     if (cardWrapRef.current) {
       cardBounds = cardWrapRef.current.getBoundingClientRect();
       document.addEventListener("mousemove", rotateToMouse);
@@ -42,9 +41,6 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
   }
 
   function rotateToMouse(e: MouseEvent) {
-    console.log("rotate event");
-
-    console.log(cardBounds);
     if (!cardBounds || !cardWrapRef.current || !borderWrapRef.current) return;
 
     const mouseX = e.clientX;
@@ -78,14 +74,9 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
     `;
   }
 
-  const imgURL = "https://pub-ae326ee1d5544b3980b90627defb0e10.r2.dev";
-  return (
-    <Wrapper
-      ref={cardWrapRef}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      <Content ref={borderWrapRef}>
+  const Tutbox = () => {
+    return (
+      <>
         <TutsTitle>{tuts.title}</TutsTitle>
         <TutsDescription> {tuts.description} </TutsDescription>
         <Thumbnail>
@@ -107,9 +98,23 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
           </div>
         </MetaInfo>
         <TutsButton href={tuts.url} target={"_blank"}>
-          View on{" "}
-          {tuts.source === ("twitter" || "x") ? "X/Twitter" : tuts.source}
+          View on {tuts.source === "twitter" ? "X/Twitter" : tuts.source}
         </TutsButton>
+      </>
+    );
+  };
+
+  console.log(tuts.id);
+
+  const imgURL = "https://pub-ae326ee1d5544b3980b90627defb0e10.r2.dev";
+  return (
+    <Wrapper
+      ref={cardWrapRef}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <Content ref={borderWrapRef}>
+        {tuts.id == 0 ? <Subscribe /> : <Tutbox />}
       </Content>
     </Wrapper>
   );
