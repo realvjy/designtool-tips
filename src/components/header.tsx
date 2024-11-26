@@ -53,6 +53,11 @@ const LogoWrapper = styled(Link)`
     font-size: 32px;
     font-weight: 700;
     letter-spacing: -1px;
+    background-image: linear-gradient(135deg, color(display-p3 .6196078431 .4784313725 1 / 1) 0%, color(display-p3 .9960784314 .5450980392 .7333333333 / 1) 33.33%, color(display-p3 1 .7411764706 .4784313725 / 1) 66.67%, color(display-p3 .9725490196 .9176470588 .7647058822 / 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
   }
 
   .img {

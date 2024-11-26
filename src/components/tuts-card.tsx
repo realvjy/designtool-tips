@@ -68,7 +68,7 @@ export default function TutsCard({ tuts }: { tuts: tutsDataType }) {
         circle at
         ${center.x * 2 + cardBounds.width / 2 - 30}px
         ${center.y * 2 + cardBounds.height / 2 - 30}px,
-        #ffffff3e,
+        #726aa539,
         #0000000f
       )
     `;
@@ -128,7 +128,7 @@ export const Wrapper = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  background: rgba(128, 128, 128, 0.3);
+  background: rgba(35, 35, 37, 0.01);
   background-blend-mode: luminosity;
   backdrop-filter: blur(45px);
   -webkit-backdrop-filter: blur(45px);
@@ -143,16 +143,34 @@ export const Wrapper = styled.div`
     padding: 1px;
     background: linear-gradient(
       156.52deg,
-      rgba(255, 255, 255, 0.4) 2.12%,
-      rgba(255, 255, 255, 0.0001) 39%,
-      rgba(255, 255, 255, 0.0001) 54.33%,
-      rgba(255, 255, 255, 0.1) 93.02%
+      rgba(226, 232, 255, .1) 2%,
+      rgba(226, 255, 255, 0.05) 39%,
+      rgba(226, 255, 255, 0.1) 54.33%,
+      rgba(226, 255, 255, 0.1) 93.02%
     );
     mask: linear-gradient(black, black) content-box,
       linear-gradient(black, black);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
   }
+  &::after {
+    border-radius: inherit;
+    z-index: 3;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    box-shadow: 0 -28px 84px -24px #e2e8ff1f inset;
+    background: radial-gradient(103.78% 100% at 50% 0%, 
+      rgba(118, 146, 255, 0) 80.55%,
+       rgba(122, 150, 255, .04) 100%),
+      radial-gradient(120.05% 100% at 50% 0%, 
+        rgba(226, 232, 255, 0) 33.78%, rgba(226, 232, 255, .08) 100%),
+         rgba(226, 232, 255, .01);
+}
 `;
 export const Thumbnail = styled.div`
   height: 60%;
@@ -160,6 +178,7 @@ export const Thumbnail = styled.div`
   img {
     width: 100%;
     border-radius: 12px;
+    border:  0.5px solid rgba(71, 71, 71, 0.2);
   }
 `;
 
@@ -255,8 +274,9 @@ export const TutsLogo = styled.div`
 `;
 export const TutsTitle = styled.h3`
   font-weight: 700;
-  font-size: 17px;
+  font-size: 18px;
   margin-bottom: 8px;
+  margin-top: 8px;
   @media screen and (max-width: 500px) {
     font-size: 18px;
   }
