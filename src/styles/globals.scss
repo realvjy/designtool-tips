@@ -41,6 +41,7 @@ body {
   background-size: cover;
   color: var(--primary-fg-color);
   position: relative;
+  overflow-x: hidden;
   z-index: 0;
   &::before{
       width: 100vw;
