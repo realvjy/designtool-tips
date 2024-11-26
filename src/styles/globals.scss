@@ -33,8 +33,7 @@ a {
 
 body {
   font-family: var(--font-interDisplay);
-  background-color: #05051e;
-  background-color: color(display-p3 .0196078431 .0196078431 .11764705);
+  background-color: #060615;
   background-repeat: no-repeat;
   background-position: top, bottom;
   background-attachment: fixed;
@@ -91,4 +90,25 @@ main {
 
 .title-dot{
   margin: 0 24px;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  padding: 0 1px;
+  background: var(--primary-bg-color);
+  border-left: 1px solid rgba(120,120,120,0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(120,120,120,0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
