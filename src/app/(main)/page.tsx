@@ -96,7 +96,7 @@ export default function Home() {
         <Wrapper>
           {updatedTuts.slice(0, visible).map((data, key) => {
             return (
-              <CardWrap>
+              <CardWrap key={key}>
                 <TutsCard tuts={data} key={key} />
               </CardWrap>
             );

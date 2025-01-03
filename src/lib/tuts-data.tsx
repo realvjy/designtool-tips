@@ -540,4 +540,18 @@ export const tutsData: tutsDataType[] = [
     url: "https://x.com/realvjy/status/1844716401770037394",
     source: "twitter",
   },
+  {
+    id: 162,
+    title: "Christmas Ball",
+    img: "christmas-ball.jpeg",
+    date: "13 Nov, 2024",
+    description: `Simple steps to shiny christmas ball`,
+    author: "realvjy",
+    tags: ["figma", "any"],
+    view: 51000,
+    hidden: false,
+    category: "figma",
+    url: "https://x.com/realvjy/status/1869716555556393249",
+    source: "twitter",
+  },
 ];
